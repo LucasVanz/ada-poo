@@ -1,3 +1,5 @@
+package Aula1;
+
 public class Agenda {
     Contato[] contatos;
 

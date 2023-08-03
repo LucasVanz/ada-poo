@@ -1,3 +1,5 @@
+package Aula1;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -21,6 +23,7 @@ public class Main {
         agenda.imprimirLista();
 
         Contato lucas = agenda.buscarPorNome("LUCAS");
+        System.out.println(lucas.getNumero());
         System.out.println("Detalhes:");
         lucas.detalhar();
         lucas.ligar();
