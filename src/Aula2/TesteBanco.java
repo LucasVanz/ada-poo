@@ -34,14 +34,22 @@ public class TesteBanco {
                     int contaDeposito = scanner.nextInt();
                     System.out.println("Digite um valor a depositar: ");
                     double deposito = scanner.nextDouble();
-                    System.out.println(banco.depositar(contaDeposito, deposito));
+                    if(banco.depositar(contaDeposito, deposito)){
+                        System.out.println("Deposito realizado com sucesso");
+                    }else {
+                        System.out.println("Não foi possivel depositar");
+                    }
                     break;
                 case 3:
                     System.out.printf("Digite uma conta: ");
                     int contaSaque = scanner.nextInt();
                     System.out.println("Digite um valor a sacar: ");
                     double saque = scanner.nextDouble();
-                    System.out.println(banco.sacar(contaSaque, saque));
+                    if(banco.sacar(contaSaque, saque)){
+                        System.out.println("Saque realizado com sucesso");
+                    }else {
+                        System.out.println("Não foi possível sacar");
+                    }
                     break;
                 case 4:
                     System.out.println("Número da conta: ");
