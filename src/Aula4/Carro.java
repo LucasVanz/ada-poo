@@ -1,8 +1,8 @@
 package Aula4;
 
-public class Carro extends Veiculo{
-    int numPortas;
-    String tipoCombustivel;
+public class Carro extends Veiculo {
+    private int numPortas;
+    private String tipoCombustivel;
 
     public Carro(String placa, String cor, String modelo, int ano, int numPortas, String tipoCombustivel) {
         super(placa, cor, modelo, ano);
