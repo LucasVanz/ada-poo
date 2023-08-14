@@ -9,7 +9,7 @@ public class Restaurantes {
     private int id = 0;
     private String nome;
     private String endereco;
-    private Pratos pratos;
+    private List<Pratos> pratos;
     private static int idAux = 0;
     public static ArrayList<Restaurantes> restaurantes = new ArrayList<>();
 
@@ -17,7 +17,9 @@ public class Restaurantes {
         this.id = ++idAux;
         this.nome = nome;
         this.endereco = endereco;
+        this.pratos = new ArrayList<>();
     }
+
 
 
     public String getNome() {
@@ -36,11 +38,11 @@ public class Restaurantes {
         this.endereco = endereco;
     }
 
-    public Pratos getPratos() {
+    public List<Pratos> getPratos() {
         return pratos;
     }
 
-    public void setPratos(Pratos pratos) {
+    public void setPratos(List<Pratos> pratos) {
         this.pratos = pratos;
     }
 
@@ -60,6 +62,16 @@ public class Restaurantes {
         return new ArrayList<>(restaurantes);
     }
 
+
+
+    public static Restaurantes buscaRestaurante(int id){
+        for (Restaurantes x: restaurantes) {
+            if (x.id == id){
+                return x;
+            }
+        }
+        return null;
+    }
     @Override
     public String toString(){
         return id +"-Nome do restaurante: " + nome + "   Endereço do restaurante: " + endereco;

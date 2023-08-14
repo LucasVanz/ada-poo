@@ -13,6 +13,7 @@ public class Main {
             System.out.println("1-Inserir um restaurante ");
             System.out.println("2-Listar os restaurantes ");
             System.out.println("3-Adicionar pratos ao restaurante");
+            System.out.println("4-Listar os pratos do restaurante");
             System.out.printf("Opção:");
             int opcao = scanner.nextInt();
 
@@ -37,20 +38,34 @@ public class Main {
                     boolean adicionar = true;
                     System.out.println("Digite o número do restaurante na lista: ");
                     int id = scanner.nextInt();
-                    // busco o restaurante
+                    Restaurantes restauranteBusca = Restaurantes.buscaRestaurante(id);
                     while (adicionar == true) {
                         System.out.println("1-Novo prato");
                         System.out.println("2-Sair");
                         System.out.printf("Opção:");
                         int opcAdd = scanner.nextInt();
                         if (opcAdd == 1){
+                            scanner.nextLine();
                             System.out.println("Digite um prato:");
-
-                            //aceita um prato
+                            String prato = scanner.nextLine();
+                            System.out.println("Digite o preço do prato:");
+                            double preco = scanner.nextDouble();
+                            System.out.println("Digite a descrição do prato:");
+                            scanner.nextLine();
+                            String descricao = scanner.nextLine();
+                            Pratos pratos = new Pratos(prato, preco, descricao);
+                            Pratos.addPrato(restauranteBusca, pratos);
+                            System.out.println("Prato adicionado com  sucesso!");
                         } else if (opcAdd == 2) {
                             adicionar = false;
                         }
                     }
+                    break;
+                case 4:
+                    System.out.println("Digite o número do restaurante na lista: ");
+                    int idLista = scanner.nextInt();
+                    Restaurantes restauranteLista = Restaurantes.buscaRestaurante(idLista);
+                    System.out.println(Pratos.listaPratos(restauranteLista));
                     break;
             }
         }
